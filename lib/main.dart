@@ -1,18 +1,18 @@
 import 'dart:io';
 
-import 'package:data4peace/ui/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'backend/main_binding.dart';
 import 'frontend/auth/login.dart';
+import 'frontend/ui/home.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   var keyParseApplicationId = "x2Jh12jkjTLHuQxnObjI1nHgv5n92NR9oEwMBILL";
-  var keyParseServerUrl = "https://parseapi.back4app.com/";
+  var keyParseServerUrl = "https://parseapi.back4app.com";
   var keyParseClientKey = "rVk5hF23igROajAiGqyJ9i07SDqh7JYukjjOEGdt";
 
   var store = await CoreStoreSembastImp.getInstance(password: "mobipeace");

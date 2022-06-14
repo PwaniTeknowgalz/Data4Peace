@@ -71,8 +71,9 @@ class _LoginState extends State<Login> {
                 ),
                 SizedBox(height: 25),
                 CustomButton(
+                  style:AppConst.buttonStyle,
                   onPressed: _loginUser,
-                  title: "Login", style: null,
+                  title: "Login",
                 ),
                 SizedBox(height: 10),
                 TextButton(

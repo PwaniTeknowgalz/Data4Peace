@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class AppConst{
   //App main colors
@@ -10,8 +11,6 @@ class AppConst{
   static const Color secColorLight = Color.fromRGBO(247,230,176, 1);
   static const Color accentColor = Color.fromRGBO(51,65,72, 1);
   static const Color splashBg = Color.fromRGBO(28, 142, 153, 1);
-
-
 
   //Snackbar Colors
   static const Color success = Color.fromRGBO(40, 167, 69, 1);
@@ -23,7 +22,7 @@ class AppConst{
   static ButtonStyle buttonStyle = TextButton.styleFrom(
     minimumSize: Size(double.infinity, 40),
     primary: Colors.white,
-    backgroundColor: mainColor,
+    backgroundColor: secColor,
     textStyle: TextStyle(fontWeight: FontWeight.bold, letterSpacing: .5, fontSize: 15),
     padding: EdgeInsets.symmetric(horizontal: 18.0,  vertical: 15),
     shape: const RoundedRectangleBorder(
@@ -31,13 +30,13 @@ class AppConst{
     ),
   );
 
-   //Custom button style
+   //Proceed button style
   static ButtonStyle proceedbuttonStyle = TextButton.styleFrom(
-    minimumSize: Size(double.infinity, 40),
+    minimumSize: Size(Get.width*0.3, 20),
     primary: Colors.white,
     backgroundColor: mainColor,
     textStyle: TextStyle(fontWeight: FontWeight.bold, letterSpacing: .5, fontSize: 15),
-    padding: EdgeInsets.symmetric(horizontal: 18.0,  vertical: 15),
+    padding: EdgeInsets.symmetric(horizontal: 8.0,  vertical: 15),
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(25.0)),
     ),
