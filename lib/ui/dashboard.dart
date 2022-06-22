@@ -1,8 +1,10 @@
+import 'package:data4peace/ui/safetyTips.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 
 import '../frontend/widgets/data_card.dart';
+import 'reports.dart';
 
 class DashBoard extends StatelessWidget {
   const DashBoard({Key? key}) : super(key: key);
@@ -27,7 +29,6 @@ class DashBoard extends StatelessWidget {
                   //margin: EdgeInsets.all(20),
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          //  image: AssetImage("images/data4pbanner2.png"),
                           image: AssetImage("assets/images/data4banner2.png"),
                           fit: BoxFit.contain)),
                 )
@@ -109,7 +110,9 @@ class DashBoard extends StatelessWidget {
                             title: "Safety Tips",
                             subTitle:
                                 "Safety Tips on elections and browsing safely",
-                            onclick: () {},
+                            onclick: () {
+                              Get.to(() => SafetyTips());
+                            },
                           ),
                           SizedBox(height: 20),
                           DataCard(
@@ -117,7 +120,9 @@ class DashBoard extends StatelessWidget {
                             title: "Report",
                             subTitle:
                                 "Report harassment, misinformation and disinformation",
-                            onclick: () {},
+                            onclick: () {
+                              Get.to(() => Report());
+                            },
                           ),
                         ],
                       ),
