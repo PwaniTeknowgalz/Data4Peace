@@ -3,19 +3,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class AppConst{
+class AppConst {
   //App main colors
   static const Color mainColor = Color.fromRGBO(48, 86, 82, 1);
-  static const Color mainColorLight = Color.fromRGBO(10,181,158, 1);
-  static const Color secColor = Color.fromRGBO(191,175,65, 1);
-  static const Color secColorLight = Color.fromRGBO(247,230,176, 1);
-  static const Color accentColor = Color.fromRGBO(51,65,72, 1);
+  static const Color mainColorLight = Color.fromRGBO(10, 181, 158, 1);
+  static const Color secColor = Color.fromRGBO(191, 175, 65, 1);
+  static const Color secColorLight = Color.fromRGBO(247, 230, 176, 1);
+  static const Color accentColor = Color.fromRGBO(51, 65, 72, 1);
   static const Color splashBg = Color.fromRGBO(28, 142, 153, 1);
 
   //Snackbar Colors
   static const Color success = Color.fromRGBO(40, 167, 69, 1);
-  static const  Color error = Color.fromRGBO(220, 53, 80, 1.0);
-  static const Color warning = Color.fromRGBO(255,193,7, 1.0);
+  static const Color error = Color.fromRGBO(220, 53, 80, 1.0);
+  static const Color warning = Color.fromRGBO(255, 193, 7, 1.0);
   static const Color info = Color.fromRGBO(28, 162, 184, 1);
 
   //Custom button style
@@ -23,20 +23,22 @@ class AppConst{
     minimumSize: Size(double.infinity, 40),
     primary: Colors.white,
     backgroundColor: secColor,
-    textStyle: TextStyle(fontWeight: FontWeight.bold, letterSpacing: .5, fontSize: 15),
-    padding: EdgeInsets.symmetric(horizontal: 18.0,  vertical: 15),
+    textStyle:
+        TextStyle(fontWeight: FontWeight.bold, letterSpacing: .5, fontSize: 15),
+    padding: EdgeInsets.symmetric(horizontal: 18.0, vertical: 15),
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(25.0)),
     ),
   );
 
-   //Proceed button style
+  //Proceed button style
   static ButtonStyle proceedbuttonStyle = TextButton.styleFrom(
-    minimumSize: Size(Get.width*0.3, 20),
+    minimumSize: Size(Get.width * 0.3, 20),
     primary: Colors.white,
-    backgroundColor: mainColor,
-    textStyle: TextStyle(fontWeight: FontWeight.bold, letterSpacing: .5, fontSize: 15),
-    padding: EdgeInsets.symmetric(horizontal: 8.0,  vertical: 15),
+    backgroundColor: Color.fromRGBO(251, 120, 99, 1),
+    textStyle:
+        TextStyle(fontWeight: FontWeight.bold, letterSpacing: .5, fontSize: 15),
+    padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 15),
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(25.0)),
     ),

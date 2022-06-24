@@ -29,7 +29,7 @@ class DashBoard extends StatelessWidget {
                   //margin: EdgeInsets.all(20),
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage("assets/images/data4banner2.png"),
+                          image: AssetImage("assets/images/data4pbanner2.png"),
                           fit: BoxFit.contain)),
                 )
               ],
