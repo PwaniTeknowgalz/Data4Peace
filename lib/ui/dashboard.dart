@@ -124,6 +124,18 @@ class DashBoard extends StatelessWidget {
                               Get.to(() => Report());
                             },
                           ),
+                          SizedBox(height: 20),
+                          DataCard(
+
+                            //Todo upload image 
+                            img: "assets/images/sec2.jpg",
+                            title: "Peace Initiatives",
+                            subTitle:
+                                "Upload and view content to promote peace",
+                            onclick: () {
+                              Get.to(() => Report());
+                            },
+                          ),
                         ],
                       ),
                     ),
