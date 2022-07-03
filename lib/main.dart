@@ -1,6 +1,10 @@
 import 'dart:io';
 
 import 'package:data4peace/ui/home.dart';
+<<<<<<< HEAD
+=======
+
+>>>>>>> 743ddd801d5897e28da24f92d5dea182d9860abd
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
@@ -8,7 +12,10 @@ import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'backend/main_binding.dart';
 import 'frontend/auth/login.dart';
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 743ddd801d5897e28da24f92d5dea182d9860abd
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
