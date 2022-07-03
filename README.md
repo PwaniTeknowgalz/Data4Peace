@@ -20,7 +20,7 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Inspirations 
 Dribble: https://dribbble.com/
-Pinsect:https://www.pinterest.com/search/pins/?rs=ac&len=2&q=mobile%20app%20design%20inspiration&eq=mobile%20app&etslf=11174&term_meta[]=mobile%7Cautocomplete%7C3&term_meta[]=app%7Cautocomplete%7C3&term_meta[]=design%7Cautocomplete%7C3&term_meta[]=inspiration%7Cautocomplete%7C3
+pinterest:https://www.pinterest.com/search/pins/?rs=ac&len=2&q=mobile%20app%20design%20inspiration&eq=mobile%20app&etslf=11174&term_meta[]=mobile%7Cautocomplete%7C3&term_meta[]=app%7Cautocomplete%7C3&term_meta[]=design%7Cautocomplete%7C3&term_meta[]=inspiration%7Cautocomplete%7C3
 
 
 
