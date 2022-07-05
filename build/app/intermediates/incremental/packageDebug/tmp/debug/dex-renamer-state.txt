@@ -1,8 +1,0 @@
-<<<<<<< HEAD
-#Wed Jun 15 22:09:42 EAT 2022
-=======
-#Mon Jun 20 16:05:31 EAT 2022
->>>>>>> 743ddd801d5897e28da24f92d5dea182d9860abd
-base.0=/opt/lampp/htdocs/coding-projects/Flutter-applications/Data4Peace/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
-renamed.0=classes.dex
-path.0=classes.dex
