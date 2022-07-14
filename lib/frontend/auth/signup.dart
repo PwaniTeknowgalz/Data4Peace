@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:data4peace/ui/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
@@ -137,6 +138,10 @@ class _SignupState extends State<Signup> {
       var loggedIn = await AuthController.to.signup(fields["name"],
           fields["email"], fields["phone"], fields["town"], fields["password"]);
       SmartDialog.dismiss();
+       if(loggedIn){
+        Get.offUntil(GetPageRoute(page: () => const DashBoard()), (route) => false);
+        Get.to(()=>DashBoard());
+      }
     }
   }
 }

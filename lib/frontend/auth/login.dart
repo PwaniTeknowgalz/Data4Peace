@@ -1,8 +1,11 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:data4peace/ui/dashboard.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:get/get.dart';
 
 import '../../backend/controllers/auth_controller.dart';
@@ -20,7 +23,12 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+
+
   final _formKey = GlobalKey<FormBuilderState>();
+  final _formKey2 = GlobalKey<FormBuilderState>();
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +71,10 @@ class _LoginState extends State<Login> {
                   children: [
                     TextButton(
                         onPressed: () {
-                          // Get.dialog(RequestPassword());
+                          if (kDebugMode) {
+                            print("Forgot!");
+                          }
+                          _showRequestPasswordDialog();
                         },
                         child: Text("Forgot Password?",
                             style: TextStyle(color: AppConst.secColor))),
@@ -116,6 +127,98 @@ class _LoginState extends State<Login> {
       var loggedIn =
           await AuthController.to.login(fields["email"], fields["password"]);
       SmartDialog.dismiss();
+      
+      if(loggedIn){
+        Get.offUntil(GetPageRoute(page: () => const DashBoard()), (route) => false);
+        Get.to(()=>DashBoard());
+      }
     }
   }
+  void _showRequestPasswordDialog() {
+    SmartDialog.show(builder: (context) {
+      return SafeArea(
+        child: Container(
+          color: Colors.white,
+          width: Get.width,
+          height: Get.height,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+
+                  color: const Color.fromRGBO(22, 29, 64, 1),
+                  child: ListTile(
+                      contentPadding: const EdgeInsets.only(left: 20,right:0,top: 5,bottom: 5),
+                      tileColor: const Color.fromRGBO(22, 29, 64, 1),
+                      trailing: IconButton(onPressed: (){
+                        SmartDialog.dismiss();
+                      }, icon: const Icon(Icons.close,color: Colors.white,)),
+                      title:const Text("Password Reset", style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold)),
+                      subtitle: const Text("Enter Email below", style: TextStyle(color: Colors.white),),
+                    )
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: FormBuilder(
+                    key: _formKey2,
+                    autovalidateMode: AutovalidateMode.disabled,
+                    child: Column(
+                      children: <Widget>[
+                        const SizedBox(height: 30,),
+                        FormBuilderTextField(
+                          name: 'email',
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                            labelText:
+                            'Email',
+                          ),
+                          // onChanged: _onChanged,
+                          // valueTransformer: (text) => num.tryParse(text),
+                          validator: FormBuilderValidators.compose([
+                            FormBuilderValidators.required(),
+                            FormBuilderValidators.email()
+                          ]),
+                          keyboardType: TextInputType.text,
+                        ),
+
+                        const SizedBox(height: 40,),
+                        CustomButton(
+                          onPressed: () {
+                            _sendPasswordReset(_formKey2.currentState);
+                          },
+                          title: "Send Password Reset Email", style: AppConst.buttonStyle,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    },);
+
+  }
+
 }
+
+Future<void> _sendPasswordReset(FormBuilderState? currentState) async {
+  if(currentState!=null){
+    currentState.save();
+    print(currentState.value);
+  }
+  if(currentState==null || !currentState.isValid){
+    AppUtils.showModalMessage(message:"Entered data is invalid or fields are empty!",color: AppConst.error);
+    return;
+  }
+
+  var email = currentState.value["email"];
+  await AuthController.to.sendPasswordResetEmail(email);
+
+  SmartDialog.dismiss();
+
+}
+
+

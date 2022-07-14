@@ -1,3 +1,4 @@
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
@@ -137,6 +138,7 @@ class AuthController extends GetxController {
     }
 
     //Get.offAll(() => const Login());
+    SmartDialog.dismiss();
     return true;
   }
 

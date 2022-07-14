@@ -11,11 +11,16 @@ import 'frontend/auth/login.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  var keyParseApplicationId = "x2Jh12jkjTLHuQxnObjI1nHgv5n92NR9oEwMBILL";
-  var keyParseServerUrl = "https://parseapi.back4app.com";
-  var keyParseClientKey = "rVk5hF23igROajAiGqyJ9i07SDqh7JYukjjOEGdt";
+ var keyParseServerUrl = "https://parseapi.back4app.com";
 
-  var store = await CoreStoreSembastImp.getInstance(password: "mobipeace");
+  // var keyParseApplicationId = "x2Jh12jkjTLHuQxnObjI1nHgv5n92NR9oEwMBILL";
+  // var keyParseClientKey = "rVk5hF23igROajAiGqyJ9i07SDqh7JYukjjOEGdt";
+
+  //Test Credentials
+  var keyParseApplicationId = "8G0QcO27nAbdnCMIU3VGMdDVt86off4DmHkFFAGg";
+  var keyParseClientKey = "4Y1iXxtkfiWxEAHK9SG6lUZjnqp88gRt2rThFVm5";
+
+  var store = await CoreStoreSembastImp.getInstance(password: "data4peace");
 
   await Parse().initialize(keyParseApplicationId, keyParseServerUrl,
       clientKey: keyParseClientKey, autoSendSessionId: true, coreStore: store);

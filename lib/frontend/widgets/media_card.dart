@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../utils/app_constants.dart';
+
 class MediaCard extends StatelessWidget {
   const MediaCard(
       {Key? key,
@@ -24,15 +26,15 @@ class MediaCard extends StatelessWidget {
             Container(
               height: 150,
               width: Get.width,
-              padding: EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                color: Colors.teal,
+              padding: const EdgeInsets.all(8),
+              decoration: const BoxDecoration(
+                color: AppConst.tealMainColor,
                 borderRadius: BorderRadius.all(Radius.circular(20)),
                 boxShadow: <BoxShadow>[
-                  new BoxShadow(
+                   BoxShadow(
                     color: Colors.black12,
                     blurRadius: 10.0,
-                    offset: new Offset(0.0, 10.0),
+                    offset:  Offset(0.0, 10.0),
                   ),
                 ],
               ),
@@ -42,12 +44,10 @@ class MediaCard extends StatelessWidget {
                   Container(
                     height: 150,
                     width: 80,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(20)),
-                        image: DecorationImage(
-                            image: AssetImage(img), fit: BoxFit.cover)),
-                  ),
-                  SizedBox(width: 12),
+                  ),child: FadeInImage(image: NetworkImage(img), placeholder: const NetworkImage('https://via.placeholder.com/600x853/000000/FFFFFF/?text=Data4Peace'),),),
+                  const SizedBox(width: 12),
                   Expanded(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -55,7 +55,7 @@ class MediaCard extends StatelessWidget {
                       children: [
                         Container(height: 4.0),
                         Text(title,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 18.0,
                                 fontWeight: FontWeight.w600)),
@@ -65,17 +65,17 @@ class MediaCard extends StatelessWidget {
                             height: 2.0,
                             width: 18.0,
                             color: Colors.teal[100]),
-                        SizedBox(
+                        const SizedBox(
                           height: 12,
                         ),
                         Text(subTitle,
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: Colors.white70,
                                 fontSize: 16.0,
                                 fontWeight: FontWeight.w400)),
 
-                        SizedBox(
+                        const SizedBox(
                           height: 12,
                         ),
                         Row(
@@ -83,29 +83,29 @@ class MediaCard extends StatelessWidget {
                             //icon and text
                             Row(
                               children: [
-                                Icon(
+                                const Icon(
                                   Icons.file_upload,
                                   color: Colors.white70,
                                   size: 16,
                                 ),
-                                SizedBox(width: 5),
+                                const SizedBox(width: 5),
                                 Text(files,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: Colors.white70, fontSize: 12))
                               ],
                             ),
-                            SizedBox(width: 20),
+                            const SizedBox(width: 20),
                             //icon and text
                             Row(
                               children: [
-                                Icon(
+                                const Icon(
                                   Icons.download,
                                   color: Colors.white70,
                                   size: 16,
                                 ),
-                                SizedBox(width: 5),
+                                const SizedBox(width: 5),
                                 Text(views,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: Colors.white70, fontSize: 12))
                               ],
                             )

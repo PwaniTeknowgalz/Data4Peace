@@ -1,4 +1,7 @@
-import 'package:data4peace/ui/safetyTips.dart';
+import 'package:data4peace/backend/controllers/auth_controller.dart';
+import 'package:data4peace/frontend/widgets/side_navigation.dart';
+import 'package:data4peace/ui/media.dart';
+import 'package:data4peace/ui/safety_tips.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
@@ -12,22 +15,28 @@ class DashBoard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(43, 87, 64, 1),
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+      ),
+      drawer: AppDrawerWidget().getDrawer("dashboard"),
+      backgroundColor: const Color.fromRGBO(43, 87, 64, 1),
       body: Stack(
         children: [
-          Container(
+          SizedBox(
             height: Get.height,
             width: Get.width,
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 70,
                 ),
                 Container(
                   width: Get.width * .55,
                   height: Get.width * .55,
                   //margin: EdgeInsets.all(20),
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage("assets/images/data4pbanner2.png"),
                           fit: BoxFit.contain)),
@@ -35,49 +44,50 @@ class DashBoard extends StatelessWidget {
               ],
             ),
           ),
-          Container(
+          SizedBox(
             height: Get.height,
             width: Get.width,
             child: Column(
               children: [
-                SizedBox(
-                  height: 20,
+                const SizedBox(
+                  height: 90,
                 ),
                 //Top Nav
-                Row(
-                  children: [
-                    SizedBox(width: 20),
-                    IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.menu, color: Colors.white)),
-                    Expanded(child: Container()),
-                    IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.notifications, color: Colors.white)),
-                    SizedBox(width: 20),
-                  ],
-                ),
-                SizedBox(
+                // Row(
+                //   children: [
+                //     const SizedBox(width: 20),
+                //     IconButton(
+                //         onPressed: () {},
+                //         icon: const Icon(Icons.menu, color: Colors.white)),
+                //     Expanded(child: Container()),
+                //     IconButton(
+                //         onPressed: () {},
+                //         icon: const Icon(Icons.notifications, color: Colors.white)),
+                //     const SizedBox(width: 20),
+                //   ],
+                // ),
+                const SizedBox(
                   height: 10,
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
                   width: Get.width,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
+                    children:  [
+                       const Text(
                         "Hello",
                         style: TextStyle(color: Colors.white70),
                       ),
-                      SizedBox(height: 10),
-                      Text(
-                        "Jumalaw98.",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 22),
-                      ),
+                       const SizedBox(height: 10),
+                       Obx(()=>Text(
+                          "${AuthController.to.parseUser.value!=null?AuthController.to.parseUser.value?.get("name"):""}",
+                          style:  const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 22),
+                                             ),
+                       ),
                     ],
                   ),
                 ),
@@ -86,45 +96,45 @@ class DashBoard extends StatelessWidget {
                 Expanded(
                   child: Container(
                     width: Get.width,
-                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-                    decoration: BoxDecoration(
+                    padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                    decoration: const BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(35),
-                            topRight: Radius.circular(35))),
+                        borderRadius:  BorderRadius.only(
+                            topLeft:  Radius.circular(35),
+                            topRight:  Radius.circular(35))),
                     child: SingleChildScrollView(
                       child: Column(
                         children: [
-                          SizedBox(height: 20),
-                          Container(
+                          const SizedBox(height: 20),
+                          SizedBox(
                             width: Get.width,
-                            child: Text(
+                            child: const Text(
                               "Select actions below",
                               style: TextStyle(
                                   fontWeight: FontWeight.w600, fontSize: 16),
                             ),
                           ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                           DataCard(
                             img: "assets/images/sec1.jpg",
                             title: "Safety Tips",
                             subTitle:
                                 "Safety Tips on elections and browsing safely",
                             onclick: () {
-                              Get.to(() => SafetyTips());
+                              Get.to(() => const SafetyTips());
                             },
                           ),
-                          SizedBox(height: 20),
-                          DataCard(
-                            img: "assets/images/sec2.jpg",
-                            title: "Report",
-                            subTitle:
-                                "Report harassment, misinformation and disinformation",
-                            onclick: () {
-                              Get.to(() => Report());
-                            },
-                          ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
+                          // DataCard(
+                          //   img: "assets/images/sec2.jpg",
+                          //   title: "Report",
+                          //   subTitle:
+                          //       "Report harassment, misinformation and disinformation",
+                          //   onclick: () {
+                          //     Get.to(() => const Report());
+                          //   },
+                          // ),
+                          // const SizedBox(height: 20),
                           DataCard(
 
                             //Todo upload image 
@@ -133,7 +143,7 @@ class DashBoard extends StatelessWidget {
                             subTitle:
                                 "Upload and view content to promote peace",
                             onclick: () {
-                              Get.to(() => Report());
+                              Get.to(() => const Media());
                             },
                           ),
                         ],
