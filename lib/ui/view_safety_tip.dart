@@ -63,12 +63,32 @@ class _ViewSafetyTip extends State<ViewSafetyTip> {
                               const SizedBox(height: 10),
                               SizedBox(height: Get.height * .1),
                               Container(
-                                padding: const EdgeInsets.all(20),
+                                padding: const EdgeInsets.only(top: 10),
                                 child: Text(
                                   "${MainController.to.selectedSafetyTip.value?.get("title")}",
                                   style: const TextStyle(
                                       color: Colors.white,
-                                      fontSize: 18,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ),
+                              Container(
+                                padding: const EdgeInsets.only(top: 10),
+                                child: Text(
+                                  "by ${MainController.to.selectedSafetyTip.value?.get("author").get("name")}",
+                                  style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ),
+                              Container(
+                                padding: const EdgeInsets.only(top: 10),
+                                child: Text(
+                                  "posted at ${MainController.to.fixDateDisplay(MainController.to.selectedSafetyTip.value?.get("createdAt"))}",
+                                  style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 12,
                                       fontWeight: FontWeight.w600),
                                 ),
                               ),
@@ -111,9 +131,10 @@ class _ViewSafetyTip extends State<ViewSafetyTip> {
                       await MainController.to.addLike();
                     },
                     backgroundColor: Colors.white,
-                    label: Text(
-                      "${MainController.to.getLikeCount()}",
-                      style: const TextStyle(color: Colors.black54,fontWeight: FontWeight.bold),
+                    label: Obx(()=>Text(
+                        "${MainController.to.getLikeCount()}",
+                        style: const TextStyle(color: Colors.black54,fontWeight: FontWeight.bold),
+                      ),
                     ),
                     icon: Obx(
                       () => Icon(

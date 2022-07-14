@@ -273,7 +273,7 @@ class MainController extends GetxController {
       ParseObject reqObj = ParseObject("SafetyTips");
       QueryBuilder<ParseObject> query;
       query = QueryBuilder<ParseObject>(reqObj);
-      //query.includeObject(["Votes","Entries"]);
+      query.includeObject(["author"]);
       //   ..whereEqualTo('user', AuthController.to.parseUser.value?.objectId);
       var data = await query.find();
       if (data.isNotEmpty) {
@@ -378,6 +378,11 @@ var likes = selectedSafetyTip.value?.get("likes");
 
 
   return likes.length;
+}
+
+fixDateDisplay(date){
+  initializeDateFormatting();
+  return DateFormat.yMd().add_Hm().format(date);
 }
 
 

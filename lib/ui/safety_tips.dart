@@ -65,11 +65,11 @@ class _SafetyTipsState extends State<SafetyTips> {
             children: MainController.to.safetyTips.entries.map((e) {
               return ReportDashcard(
                 userImg: "${((e.value as ParseObject).get("image") as ParseFile).url}",
-                userTitle: "${e.value.get("title")}",
-                timestamp: "${e.value.get("createdAt")}",
+                userTitle: "${e.value.get("author").get("name")}",
+                timestamp: "${MainController.to.fixDateDisplay(e.value.get("createdAt"))}",
                 bannerImg: "${((e.value as ParseObject).get("image") as ParseFile).url}",
                 caption:
-                    "${e.value.get("content")}",
+                    "${e.value.get("title")}",
                 favourites: "${e.value.get("likes")==null?0:e.value.get("likes").length}",
                 comments: "${e.value.get("comments")==null?0:e.value.get("comments").length}",
                 readMoreClick: () {
