@@ -70,7 +70,7 @@ class _MediaState extends State<Media> {
             ):Container(
         width: Get.width,
         height: Get.height,
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child:  ListView(
             children:MainController.to.competitions.value.entries.map((e) {
               return  Column(
